@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <title>CIDR to IP list</title>
+    </head>
+    <body>
+        <h1>
+            <a href="/">CIDR to IP list</a>
+            <a href="https://github.com/kyanny/cidr-to-ip-list"><img src="https://img.shields.io/badge/GitHub-repository-black"></a>
+        </h1>
+
+        <form>
+            CIDR <input type="text" name="cidr" value="<%= cidr %>">
+            <input type="submit">
+        </form>
+
+        <div>
+        <% unless error.nil? %>
+            <p><%= h error.inspect %></p>
+        <% end %>
+
+        <% unless ips.nil? %>
+        <p><a href="javascript:scrollTo(0, 99999999)">Scroll to bottom</a></p>
+        <ol style="margin-left: 2em">
+            <% ips.each do |ip| %>
+            <li><%= ip %></li>
+            <% end %>
+        </ol>
+        <p><a href="javascript:scrollTo(0, 0)">Scroll to top</a></p>
+        <% end %>
+        </div>
+    </body>
+
+</html>
